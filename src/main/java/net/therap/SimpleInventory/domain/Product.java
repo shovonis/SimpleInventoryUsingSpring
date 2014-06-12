@@ -7,8 +7,17 @@ import java.io.Serializable;
  * @since 6/12/14.
  */
 public class Product implements Serializable {
+    private int id;
     private String description;
     private Double price;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;
