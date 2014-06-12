@@ -12,6 +12,45 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean name="/home" class="net.therap.SimpleInventory.controller.InventoryController"/>
+    <bean name="/showProduct" class="net.therap.SimpleInventory.controller.InventoryController">
+        <property name="productManager" ref="productManager"/>
+    </bean>
+
+    <bean name="/priceincrease" class="net.therap.SimpleInventory.controller.PriceIncreaseFormController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="priceIncrease"/>
+        <property name="commandClass" value="net.therap.SimpleInventory.service.PriceIncrease"/>
+        <property name="validator">
+            <bean class="net.therap.SimpleInventory.service.PriceIncreaseValidator"/>
+        </property>
+        <property name="formView" value="priceincrease"/>
+        <property name="successView" value="showProduct"/>
+        <property name="productManager" ref="productManager"/>
+    </bean>
+
+    <bean id="productManager" class="net.therap.SimpleInventory.service.SimpleProductManager">
+        <property name="products">
+            <list>
+                <ref bean="product1"/>
+                <ref bean="product2"/>
+                <ref bean="product3"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="product1" class="net.therap.SimpleInventory.domain.Product">
+        <property name="description" value="Lamp"/>
+        <property name="price" value="5.75"/>
+    </bean>
+
+    <bean id="product2" class="net.therap.SimpleInventory.domain.Product">
+        <property name="description" value="Table"/>
+        <property name="price" value="75.25"/>
+    </bean>
+
+    <bean id="product3" class="net.therap.SimpleInventory.domain.Product">
+        <property name="description" value="Chair"/>
+        <property name="price" value="22.79"/>
+    </bean>
 
 </beans>

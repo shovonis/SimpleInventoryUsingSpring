@@ -12,6 +12,8 @@
 </head>
 <body>
 <h1>Simple Inventory application Using Spring 2.5 </h1>
-<p><a href="hello">Say Hello</a></p>
+
+<p><a href="showProduct">Show Products</a></p>
+<p><a href="priceincrease">Increase Price Rate</a></p>
 </body>
 </html>

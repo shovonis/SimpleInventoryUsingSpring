@@ -26,7 +26,7 @@ public class InventoryController implements Controller {
         myModel.put("products", productManager.getProducts());
 
         log.info("Inventory Request Served at Time : " + now);
-        return new ModelAndView("home", "myModel", myModel);
+        return new ModelAndView("product", "myModel", myModel);
     }
 
     public void setProductManager(SimpleProductManager productManager) {
